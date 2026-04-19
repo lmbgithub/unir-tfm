@@ -205,3 +205,118 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+
+# --- Project-specific (this template) ---
+build/
+main.pdf
+
+# --- LaTeX core (pdfLaTeX / XeLaTeX / LuaLaTeX) ---
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+.*.lb
+*.dvi
+*.xdv
+*-converted-to.*
+*.synctex
+*.synctex(busy)
+*.synctex.gz
+*.synctex.gz(busy)
+*.pdfsync
+missfont.log
+
+# --- Bibliography (BibTeX / biblatex / biber) ---
+*.bbl
+*.bcf
+*.blg
+*-blx.aux
+*-blx.bib
+*.run.xml
+*.brf
+
+# --- Indexes & glossaries ---
+*.idx
+*.ilg
+*.ind
+*.ist
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.glsdefs
+*.lzo
+*.lzs
+*.slg
+*.slo
+*.sls
+
+# --- Beamer ---
+*.nav
+*.snm
+*.vrb
+
+# --- minted ---
+_minted*
+*.pyg
+
+# --- latexmk ---
+*.fdb_latexmk
+
+# --- Editors ---
+*~
+*.swp
+*.swo
+
+# --- macOS ---
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+.apdisk
+Icon
+Icon?
+
+# --- Windows ---
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# --- Linux ---
+.directory
+.nfs*
+.fuse_hidden*
+
+*.pdf
+!main.pdf
+
+*.zip

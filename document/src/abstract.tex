@@ -1,0 +1,26 @@
+\unirfronttitle{Resumen}
+
+Los servicios de urgencias hospitalarias enfrentan una carga documental que compromete la seguridad del paciente y la eficiencia asistencial. Las enfermeras de urgencias destinan entre 27\% y 35\% del turno a documentación en sistemas de historia clínica electrónica, tiempo sustraído directamente de la atención al paciente. Dos procesos concentran el mayor riesgo de error e incompletitud: el registro de triage inicial y el handover de turno, que en la práctica resulta frecuentemente oral y desestructurado.
+
+Este Trabajo de Fin de Estudios propone UrgeNurse Agent, una plataforma multiagente de ejecución local que integra tres módulos de inteligencia artificial para soporte documental en enfermería de urgencias. El Módulo 1 valida automáticamente la coherencia del nivel de triage ESI respecto a signos vitales registrados en MIMIC-IV-ED. El Módulo 2 procesa documentos clínicos PDF externos mediante OCR, extrayendo parámetros analíticos relevantes y clasificando niveles de alerta. El Módulo 3 transcribe automáticamente audio del handover de turno mediante reconocimiento automático del habla y estructura la información en formato SBAR.
+
+Los tres agentes se orquestan mediante LangGraph sobre estado compartido (PacienteState), ejecutando todos los modelos de lenguaje localmente con Ollama y Mistral-7B para asegurar cumplimiento del Reglamento General de Protección de Datos. UrgeNurse Agent persigue concordancia de triage ≥ 0,80 (kappa de Cohen), tasa de extracción de campos clínicos ≥ 85\% (F1-score) y tasa de error de transcripción (WER) < 15\%. El desarrollo se enmarca en el programa Red Proyectum de UNIR con Sopra Steria como socio industrial.
+
+\vspace{2em}
+
+\textbf{Palabras clave:} inteligencia artificial clínica, sistemas multiagente, triage ESI, OCR médico, reconocimiento automático del habla, SBAR, RGPD, urgencias hospitalarias.
+
+\newpage
+\unirfronttitle{Abstract}
+\begin{otherlanguage}{english}
+Hospital emergency departments face a documentation burden that compromises patient safety and care efficiency. Emergency nurses spend 27\% to 35\% of their shift on electronic health record documentation tasks, time subtracted directly from patient care. Two processes concentrate the highest risk of error and incompleteness: the initial triage registration and the shift handover, which in practice is frequently oral and unstructured.
+
+This Final Studies Project proposes UrgeNurse Agent, a local multiagent platform that integrates three artificial intelligence modules to provide documentary support for emergency nursing. Module 1 automatically validates ESI triage level coherence against vital signs recorded in MIMIC-IV-ED. Module 2 processes external clinical PDF documents through OCR, extracting relevant analytical parameters and classifying alert levels. Module 3 automatically transcribes shift handover audio using automatic speech recognition and structures the information in SBAR format.
+
+All three agents are orchestrated through LangGraph on shared state (PacienteState), running all language models locally using Ollama and Mistral-7B to ensure GDPR compliance. UrgeNurse Agent targets triage concordance ≥ 0.80 (Cohen's kappa), clinical field extraction rate ≥ 85\% (F1-score), and word error rate (WER) < 15\%. Development is framed within UNIR's Red Proyectum program with Sopra Steria as industry partner.
+
+
+\vspace{2em}
+
+\textbf{Keywords:} clinical artificial intelligence, multi-agent systems, ESI triage, medical OCR, automatic speech recognition, SBAR, GDPR, hospital emergency departments.
+\end{otherlanguage}

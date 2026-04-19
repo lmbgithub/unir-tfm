@@ -1,0 +1,33 @@
+%-------------------------------------------
+% Appendix
+%-------------------------------------------
+% Activate the appendix in the doc
+% from here on sections are numerated with capital letters 
+%\appendix
+
+% Change equation numbering format to be sequential within sections in the appendix
+\renewcommand\theequation{\Alph{section}\arabic{equation}} % Redefine equation numbering format
+\counterwithin*{equation}{section} % Number equations within sections
+\renewcommand\thefigure{\Alph{section}\arabic{figure}} % Redefine equation numbering format
+\counterwithin*{figure}{section} % Number equations within sections
+\renewcommand\thetable{\Alph{section}\arabic{table}} % Redefine equation numbering format
+\counterwithin*{table}{section} % Number equations within sections
+
+
+
+\begin{appendices}
+
+
+%--- For single section ---%
+%\section*{Appendix}
+
+%--- For multiple sections ---%
+% Appendix formatting
+\renewcommand{\thesection}{Anexo~\Alph{section}}
+\renewcommand{\thesubsection}{\Alph{section}.\arabic{subsection}}
+
+%--- Section ---%
+\section{Uso de Inteligencia Artificial}
+Para el desarrollo de este proyecto se emplearon herramientas de inteligencia artificial de manera responsable, ética y complementaria, exclusivamente como apoyo técnico en la creación del formato del documento LaTeX conforme a la normativa APA (7.ª edición) y en la revisión de redacción, ortografía, coherencia y presentación formal del texto. En particular, se utilizó ChatGPT \parencite{openai2025chatgpt} con fines de asistencia editorial y validación estilística. El contenido académico, análisis, interpretación de datos, resultados y conclusiones constituyen creación original del autor, quien asumió la verificación final de la información y coherencia del trabajo. La inteligencia artificial no sustituyó el razonamiento académico ni la elaboración conceptual, en concordancia con las recomendaciones de uso ético, transparente y responsable establecidas por la normativa APA (7.ª edición) y la Declaración institucional sobre el uso responsable de la IA de la Universidad Internacional de La Rioja (UNIR) \parencite{unir2025declaracion}.
+
+\end{appendices}

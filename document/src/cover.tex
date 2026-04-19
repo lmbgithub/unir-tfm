@@ -1,0 +1,44 @@
+\begin{titlepage}
+\thispagestyle{empty}
+\centering
+\vspace*{-0.3cm}
+
+\IfFileExists{images/unir-logo.pdf}{%
+  \includegraphics[width=0.58\textwidth]{images/unir-logo.pdf}%
+}{%
+  \fbox{\begin{minipage}[c][2.2cm]{0.58\textwidth}\centering\small
+    Add \texttt{unir-logo.pdf} to \texttt{src/images/}%
+  \end{minipage}}%
+}
+
+{\fontsize{24}{27}\mdseries\fontseries{l}\selectfont Universidad Internacional de La Rioja\par}
+{\fontsize{20}{23}\mdseries\fontseries{l}\selectfont Escuela Superior de Ingeniería y \\ Tecnología\par}
+
+\vfill
+{\fontsize{18}{22}\selectfont\mastername\par}
+{\color{unirHeading}\fontsize{22}{30}\mdseries\fontseries{l}\selectfont \studentheadertitlel\par}
+{\color{unirHeading}\fontsize{18}{22}\mdseries\fontseries{l}\selectfont \studentheadertitled\par}
+
+\vfill
+\begingroup
+\centering
+\setlength{\tabcolsep}{8pt}%
+\small
+\arrayrulecolor{unirTableLine}
+\begin{tabular}{
+    |>{\hspace{0.15em}}p{\dimexpr0.5\linewidth-2\tabcolsep} <{\hspace{0.15em}}|
+    >{\hspace{0.15em}}p{\dimexpr0.5\linewidth-2\tabcolsep} <{\hspace{0.15em}}|
+}
+\hline
+Trabajo fin de estudio presentado por: & \begin{tabular}[t]{@{}l@{}}\thesisauthors\end{tabular} \\
+\hline
+Tipo de trabajo: & \thesistype \\
+\hline
+Director: & \tutorname \\
+\hline
+Fecha: & \submissiondate \\
+\hline
+\end{tabular}\par
+\endgroup
+
+\end{titlepage}

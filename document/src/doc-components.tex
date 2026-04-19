@@ -1,0 +1,60 @@
+\section*{Organización del trabajo en grupo}
+El trabajo se organiza en tres líneas técnicas principales (triage tabular ESI, documentación entrante vía OCR y handover vía ASR\,+\,SBAR), más fases transversales de integración en LangGraph, evaluación por módulos, interfaz de demostración y redacción de la memoria. Cada integrante asume la responsabilidad principal de un módulo, manteniendo reuniones de sincronización, un repositorio compartido y hitos conjuntos en las semanas centrales del calendario previsto para la integración \emph{end-to-end} y el cierre de la demo offline.
+
+\subsection*{Partes que aborda el TFE}
+Cada estudiante aborda una parte que, por volumen y profundidad técnica, podría constituir por sí sola el núcleo de un trabajo individual: (1) validación de triage ESI e ingestión y análisis de MIMIC-IV-ED; (2) generación y evaluación de documentos sintéticos, OCR con Docling y extracción/clasificación de campos para enfermería; (3) pipeline ASR local, diseño iterativo de prompts SBAR y evaluación con WER y completitud. La integración multiagente, la demo y los secciones transversales (marco normativo, estado del arte compartido, conclusiones) se reparten de forma explícita en la tabla siguiente y en los mecanismos de coordinación.
+
+\subsection*{Distribución y estructura de la memoria}
+Complete la siguiente tabla que debe reflejar el reparto de trabajo a la hora de confeccionar la memoria del TFE. Se aporta un ejemplo para facilitar su elaboración.
+
+\begin{table}[H]
+  \centering
+  \caption{Organización del trabajo en grupo.}
+  \label{tab:group-work}
+  \begingroup
+  \arrayrulecolor{unirTableLine}
+  \begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
+  \hline
+  \rowcolor{unirTableHeader}
+  \multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\textcolor{white}{\textbf{Organización del trabajo en grupo - Desarrollo de la memoria}}} \\
+  \hline
+  \rowcolor{unirTableBand}
+  Apartado de la memoria & Responsables \\
+  \hline
+  Introducción & César Adrian Robledo Olave, Luis Edilberto Ortiz Hernández y Luis Manuel Barrios Núñez \\
+  \hline
+  \rowcolor{unirTableBand}
+  Contexto y estado del arte & César Adrian Robledo Olave, Luis Edilberto Ortiz Hernández y Luis Manuel Barrios Núñez \\
+  \hline
+  Objetivos y metodología de trabajo & César Adrian Robledo Olave, Luis Edilberto Ortiz Hernández y Luis Manuel Barrios Núñez \\
+  \hline
+  \rowcolor{unirTableBand}
+  Marco normativo & César Adrian Robledo Olave, Luis Edilberto Ortiz Hernández y Luis Manuel Barrios Núñez \\
+  \hline
+  Desarrollo específico: módulo triage ESI y datos MIMIC-IV-ED & César Adrian Robledo Olave \\
+  \hline
+  \rowcolor{unirTableBand}
+  Desarrollo específico: módulo documental (OCR, PDF sintéticos, campos de enfermería) & Luis Edilberto Ortiz Hernández \\
+  \hline
+  Desarrollo específico: módulo ASR, SBAR y evaluación de audio & Luis Manuel Barrios Núñez \\
+  \hline
+  \rowcolor{unirTableBand}
+  Integración LangGraph, demo Streamlit y evaluación integrada & César Adrian Robledo Olave, Luis Edilberto Ortiz Hernández y Luis Manuel Barrios Núñez \\
+  \hline
+  Conclusiones & César Adrian Robledo Olave, Luis Edilberto Ortiz Hernández y Luis Manuel Barrios Núñez \\
+  \hline
+  \end{tabularx}
+  \endgroup
+\end{table}
+
+\figuresource{Fuente: Elaboración propia.}
+Objetivo del TFE desde el punto de vista de la adquisición de conocimientos
+
+Desde el punto de vista de la adquisición de conocimientos, este TFE articula segmentos diferenciados (datos tabulares de urgencias, comprensión de documentos clínicos heterogéneos y procesamiento de audio con generación estructurada) que exigen dominar estándares clínicos de triaje, técnicas de extracción multimodal y evaluación rigurosa de ASR y LLM en contexto asistencial. El carácter grupal aporta una visión holística del circuito asistencial en urgencias ---triaje, documentación de entradas y continuidad en el cambio de turno--- y converge en un prototipo único orquestado y demostrable, alineado con competencias de ingeniería de datos e inteligencia artificial aplicada a un dominio regulado.
+
+\subsection*{Mecanismos de coordinación empleados}
+Hay que recordar que nos estamos preparando para un día a día en un mundo laboral cada vez más complejo. Este mundo laboral implica siempre trabajar en conjunto con otras personas y profesionales de diferentes ámbitos.  Un TFE grupal te prepara para esa realidad a la que nos enfrentamos en un entorno laboral real.
+
+La coordinación se apoya en reuniones periódicas de seguimiento, reparto explícito de tareas por módulo y un calendario con ventanas reservadas para la integración (definición del estado compartido del paciente en LangGraph, pruebas \emph{end-to-end} y estabilización de la demo) y para la experimentación comparativa opcional con un modelo en la nube, sin que el núcleo del sistema deje de ser local. El código, la trazabilidad de decisiones (prompts, versiones de modelo, tablas de métricas) y los entregables de memoria se centralizan en repositorio Git con \emph{issues} o tablero equivalente para priorizar dependencias entre módulos (p.\,ej.\ esquema de campos compartidos entre OCR y SBAR). La comunicación complementaria se realiza por los canales acordados con el tutor (correo o videollamada), validando previamente con el director cualquier cambio relevante de alcance.
+
+La coordinación del equipo se realiza mediante: repositorio compartido en GitHub para código fuente y control de versiones; Google Drive para coedición de la memoria; reuniones semanales de seguimiento por videoconferencia los martes; canal de comunicación continua mediante WhatsApp; y tablero Kanban en Notion para seguimiento de avance por módulo.

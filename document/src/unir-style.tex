@@ -1,0 +1,152 @@
+% UNIR thesis visual style (colors, headings, headers, captions).
+\usepackage[table]{xcolor}
+\usepackage{mdframed}
+\usepackage{fancyhdr}
+\usepackage{tocloft}
+\usepackage{ragged2e}
+
+\definecolor{unirHeading}{HTML}{0098CD}
+\definecolor{unirBoxBg}{HTML}{E6F4F9}
+\definecolor{unirBoxText}{HTML}{333333}
+\definecolor{unirBoxBorder}{HTML}{0098CD}
+\definecolor{unirLink}{HTML}{0563C1}
+\definecolor{unirTableHeader}{HTML}{5B9BD5}
+\definecolor{unirTableBand}{HTML}{DEEAF6}
+\definecolor{unirTableLine}{HTML}{9CC2E5}
+\definecolor{unirCaptionGray}{HTML}{595959}
+\definecolor{unirFooterRule}{HTML}{0098CD}
+
+\newmdenv[
+  linewidth=0.75pt,
+  linecolor=unirBoxBorder,
+  backgroundcolor=unirBoxBg,
+  innerleftmargin=10pt,
+  innerrightmargin=10pt,
+  innertopmargin=8pt,
+  innerbottommargin=8pt,
+  skipabove=0.75\baselineskip,
+  skipbelow=0.75\baselineskip,
+]{unirnotice}
+
+\newcommand{\unirfronttitle}[1]{%
+  \par\vspace{1.25\baselineskip}%
+  {\noindent\unirtitlefont\fontsize{18}{22}\selectfont\mdseries\color{unirHeading}#1\par}%
+  \vspace{0.75\baselineskip}%
+}
+
+% Babel restablece \contentsname al activar spanish en \AtBeginDocument; fijar en captionsspanish.
+\addto\captionsspanish{%
+  \renewcommand{\contentsname}{Índice de contenidos}%
+  \renewcommand{\listfigurename}{Índice de figuras}%
+  \renewcommand{\listtablename}{Índice de tablas}%
+}
+\renewcommand{\appendixname}{Anexo}
+\renewcommand{\appendixtocname}{Anexos}
+\renewcommand{\appendixpagename}{Anexos}
+
+\renewcommand{\cfttoctitlefont}{\unirtitlefont\huge\mdseries\color{unirHeading}}
+\renewcommand{\cftloftitlefont}{\unirtitlefont\huge\mdseries\color{unirHeading}}
+\renewcommand{\cftlottitlefont}{\unirtitlefont\huge\mdseries\color{unirHeading}}
+% article + tocloft: section TOC entries default to \bfseries; use light/medium only.
+\renewcommand{\cftsecfont}{\normalfont\mdseries\upshape}
+% article + tocloft: por defecto \cftsecdotsep es \cftnodots; igualar a subsecciones.
+\renewcommand{\cftsecdotsep}{\cftdotsep}
+\renewcommand{\cftsecleader}{\normalfont\mdseries\upshape\cftdotfill{\cftsecdotsep}}
+\renewcommand{\cftsecpagefont}{\normalfont\mdseries\upshape}
+% Índice de secciones: sin caja de ancho fijo en \numberline (evita hueco tipo tabulación).
+% El cuerpo usa «1.» / «Anexo A.»; en el .toc solo viene el número sin punto.
+\makeatletter
+\newcommand{\unir@toc@section@numberline}[1]{#1.\space}
+\renewcommand*{\l@section}[2]{%
+  \ifnum \c@tocdepth >\z@
+    \if@cfthaschapter
+      \vskip \cftbeforesecskip
+    \else
+      \addpenalty\@secpenalty
+      \addvspace{\cftbeforesecskip}
+    \fi
+    {\leftskip \cftsecindent\relax
+     \rightskip \@tocrmarg
+     \parfillskip -\rightskip
+     \parindent \cftsecindent\relax\@afterindenttrue
+     \interlinepenalty\@M
+     \leavevmode
+     \let\numberline\unir@toc@section@numberline
+     {\cftsecfont #1}\nobreak
+     \cftsecfillnum{#2}}%
+  \fi}
+\makeatother
+\setlength{\cftbeforetoctitleskip}{2ex}
+\setlength{\cftaftertoctitleskip}{2.5ex}
+\setlength{\cftbeforeloftitleskip}{2ex}
+\setlength{\cftafterloftitleskip}{2.5ex}
+\setlength{\cftbeforelottitleskip}{2ex}
+\setlength{\cftafterlottitleskip}{2.5ex}
+
+% Redefinición del color de los títulos de toda la jerarquía de secciones
+
+% SECTION
+\titleformat{\section}
+  {\unirtitlefont\fontsize{18}{22}\mdseries\color{unirHeading}}
+  {\thesection.}{0.65em}{}
+\titlespacing*{\section}{0pt}{1.4\baselineskip}{0.65\baselineskip}
+
+\titleformat{name=\section,numberless}[hang]
+  {\unirtitlefont\fontsize{18}{22}\mdseries\color{unirHeading}}
+  {}{0pt}{}
+\titlespacing*{name=\section,numberless}{0pt}{1.4\baselineskip}{0.65\baselineskip}
+
+% SUBSECTION
+\titleformat{\subsection}
+  {\normalfont\fontsize{14}{17}\mdseries\upshape\color{unirHeading}}
+  {\thesubsection}{0.65em}{}
+\titlespacing*{\subsection}{0pt}{1.1\baselineskip}{0.45\baselineskip}
+
+\titleformat{name=\subsection,numberless}[hang]
+  {\normalfont\fontsize{14}{17}\mdseries\upshape\color{unirHeading}}
+  {}{0pt}{}
+\titlespacing*{name=\subsection,numberless}{0pt}{1.1\baselineskip}{0.45\baselineskip}
+
+% SUBSUBSECTION
+\titleformat{\subsubsection}
+  {\normalfont\fontsize{13}{16}\mdseries\color{unirHeading}}
+  {\thesubsubsection}{0.65em}{}
+\titlespacing*{\subsubsection}{0pt}{0.9\baselineskip}{0.4\baselineskip}
+
+\titleformat{name=\subsubsection,numberless}[hang]
+  {\normalfont\fontsize{13}{16}\mdseries\color{unirHeading}}
+  {}{0pt}{}
+\titlespacing*{name=\subsubsection,numberless}{0pt}{0.9\baselineskip}{0.4\baselineskip}
+
+% PARAGRAPH / SUBPARAGRAPH (opcional, para jerarquía completa)
+\titleformat{\paragraph}
+  {\normalfont\fontsize{11}{14}\mdseries\color{unirHeading}}
+  {\theparagraph}{0.65em}{}
+\titlespacing*{\paragraph}{0pt}{0.6\baselineskip}{0.3\baselineskip}
+
+\titleformat{name=\paragraph,numberless}[hang]
+  {\normalfont\fontsize{11}{14}\mdseries\color{unirHeading}}
+  {}{0pt}{}
+\titlespacing*{name=\paragraph,numberless}{0pt}{0.6\baselineskip}{0.3\baselineskip}
+
+\titleformat{\subparagraph}
+  {\normalfont\fontsize{10}{13}\mdseries\color{unirHeading}}
+  {\thesubparagraph}{0.65em}{}
+\titlespacing*{\subparagraph}{0pt}{0.45\baselineskip}{0.2\baselineskip}
+
+\titleformat{name=\subparagraph,numberless}[hang]
+  {\normalfont\fontsize{10}{13}\mdseries\color{unirHeading}}
+  {}{0pt}{}
+\titlespacing*{name=\subparagraph,numberless}{0pt}{0.45\baselineskip}{0.2\baselineskip}
+
+\newcommand{\figuresource}[1]{%
+  \par\medskip
+  {\centering\footnotesize\itshape\color{unirCaptionGray}#1\par}%
+}
+
+\fancypagestyle{unir}{%
+  \fancyhf{}%
+  \fancyfoot[R]{\small\color{unirHeading}\thepage}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \renewcommand{\footrulewidth}{0pt}%
+}

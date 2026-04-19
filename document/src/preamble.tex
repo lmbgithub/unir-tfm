@@ -1,0 +1,210 @@
+% --- Fonts (XeLaTeX) ---
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX}
+\makeatletter
+\InputIfFileExists{fonts-local.tex}{}{}%
+\@ifundefined{UnirLocalFontsDone}{%
+  \IfFontExistsTF{Calibri Light}{%
+    \setmainfont{Calibri Light}%
+    \setsansfont{Calibri Light}%
+  }{%
+    \IfFontExistsTF{Calibri}{%
+      \setmainfont{Calibri}[
+        UprightFont = Calibri Light,
+        BoldFont = Calibri Bold,
+        ItalicFont = Calibri Italic,
+        BoldItalicFont = Calibri Bold Italic,
+      ]%
+      \setsansfont{Calibri}[
+        UprightFont = Calibri Light,
+        BoldFont = Calibri Bold,
+        ItalicFont = Calibri Italic,
+        BoldItalicFont = Calibri Bold Italic,
+      ]%
+    }{%
+      \RequirePackage[default,lining]{carlito}%
+    }%
+  }%
+}{}%
+\makeatother
+
+% Body text: 12\,pt with 18\,pt baselineskip; main font is light upright (Calibri Light / calibri-light).
+\makeatletter
+\renewcommand\normalsize{%
+  \@setfontsize\normalsize{12}{18}%
+  \abovedisplayskip 12\p@ \@plus3\p@ \@minus7\p@
+  \abovedisplayshortskip \z@ \@plus3\p@
+  \belowdisplayshortskip 6.5\p@ \@plus3.5\p@ \@minus3\p@
+  \belowdisplayskip \abovedisplayskip
+  \let\@listi\@listI
+}
+\makeatother
+\normalsize
+
+\IfFontExistsTF{Menlo}{%
+  \setmonofont{Menlo}[Scale = MatchLowercase]%
+}{%
+  \setmonofont{Latin Modern Mono}[Scale = MatchLowercase]%
+}
+
+\usepackage{amsmath}
+\usepackage{unicode-math}
+\setmathfont{latinmodern-math.otf}
+
+\usepackage[spanish,english,es-noindentfirst,es-tabla]{babel}
+\AtBeginDocument{%
+  \selectlanguage{spanish}%
+  \justifying
+  \setlength{\parindent}{0pt}%
+  \setlength{\JustifyingParindent}{0pt}%
+  \normalsize
+}
+
+\usepackage[a4paper,top=2.5cm,bottom=2.5cm,left=3cm,right=2cm,marginparwidth=1.75cm,headheight=28pt]{geometry}
+
+\usepackage{csquotes}
+\usepackage[style=apa, backend=biber, hyperref=true]{biblatex}
+\addbibresource{references.bib}
+% Citas entre paréntesis (estilo APA) y enlace al ítem en Referencias bibliográficas.
+\AtBeginDocument{\let\cite\parencite}
+\DeclareLanguageMapping{spanish}{spanish-apa}
+\DeclareFieldFormat[article]{volume}{\apanum{#1}}
+\renewcommand*{\finalnamedelim}{%
+  \ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}%
+  \addspace\&\space}
+
+% biblatex-apa enlaza solo el año; el hipervínculo abarca autor+título (si aplica)+año.
+\makeatletter
+\renewbibmacro*{cite:plabelyear+extradate}{%
+  \iffieldundef{labelyear}{}
+    {\printtext{%
+        \clearfield{labelmonth}%
+        \clearfield{labelday}%
+        \clearfield{labelendmonth}%
+        \clearfield{labelendday}%
+        \clearfield{labelyeardivision}%
+        \clearfield{labelendyeardivision}%
+        \iffieldsequal{labelyear}{labelendyear}%
+          {\clearfield{labelendyear}}%
+          {}%
+        \iffieldundef{origyear}
+          {}
+          {\printorigdate\setunit*{\addslash}}%
+        \iffieldundef{related}
+          {}
+          {\iffieldequalstr{relatedtype}{reprintfrom}
+            {\entrydata*{\thefield{related}}{\printlabeldateextra}%
+             \setunit*{\addslash}}
+            {}}%
+        \printlabeldateextra}}}
+
+\renewbibmacro*{cite}{%
+  \printtext[bibhyperref]{%
+    \iffieldequals{namehash}{\cbx@lasthash}
+      {\setunit{\compcitedelim}%
+       \usebibmacro{cite:plabelyear+extradate}}%
+      {\ifnameundef{labelname}
+         {\usebibmacro{cite:noname}%
+          \setunit{\printdelim{nameyeardelim}}%
+          \usebibmacro{cite:plabelyear+extradate}%
+          \savefield{namehash}{\cbx@lasthash}}
+         {\ifnameundef{shortauthor}
+            {\printnames{labelname}}%
+            {\cbx@apa@ifnamesaved
+               {\printnames{shortauthor}}
+               {\printnames[labelname]{author}%
+                \addspace\printnames[sabrackets]{shortauthor}}}%
+          \setunit{\printdelim{nameyeardelim}}%
+          \usebibmacro{cite:plabelyear+extradate}%
+          \savefield{namehash}{\cbx@lasthash}}}%
+  }%
+  \setunit{\multicitedelim}}
+\makeatother
+
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage[title]{appendix}
+\usepackage{mathrsfs}
+\usepackage{amsfonts}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage[format=plain, singlelinecheck=false, font=small, labelfont=bf, justification=justified]{caption}
+\captionsetup[figure]{justification=centering}
+\usepackage{threeparttable}
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{chngcntr}
+\usepackage{lipsum}
+\usepackage{subcaption}
+\usepackage{authblk}
+\usepackage{diagbox}
+\usepackage{comment}
+\usepackage{url}
+\usepackage{float}
+\usepackage{etoolbox}
+\usepackage{titlesec}
+
+\input{unir-style}
+% ragged2e freezes \JustifyingParindent at load time; align with no indent for body text.
+\setlength{\parindent}{0pt}%
+\setlength{\JustifyingParindent}{0pt}%
+
+\captionsetup[table]{position=top}
+
+\makeatletter
+\newenvironment{unlist}{%
+  \begin{list}{}{%
+    \setlength{\labelwidth}{0pt}%
+    \setlength{\labelsep}{0pt}%
+    \setlength{\leftmargin}{2em}%
+    \setlength{\itemindent}{-2em}%
+    \setlength{\topsep}{\medskipamount}%
+    \setlength{\itemsep}{3pt}%
+  }%
+}{%
+  \end{list}%
+}
+\makeatother
+
+\lstset{
+  basicstyle = \ttfamily\small,
+  breaklines = true,
+  columns = fullflexible,
+}
+
+\usepackage[colorlinks=true, linkcolor=black, citecolor=unirLink, urlcolor=unirLink]{hyperref}
+
+% biblatex `bibintoc` llama a \addcontentsline sin ancla nueva: el índice enlazaba al último \subsection.
+\makeatletter
+\defbibheading{bibintoc}[\refname]{%
+  \section*{#1}%
+  \phantomsection
+  \addcontentsline{toc}{section}{#1}%
+  \@mkboth{\abx@MakeMarkcase{#1}}{\abx@MakeMarkcase{#1}}}
+\makeatother
+
+% Referencias bibliográficas: texto corrido (sin cursivas/negrita de título, volumen, etc.);
+% DOI y URL siguen siendo enlaces con urlcolor/citecolor de hyperref.
+\makeatletter
+\let\unir@orig@mkbibemph\mkbibemph
+\let\unir@orig@mkbibbold\mkbibbold
+\let\unir@orig@mkbibitalic\mkbibitalic
+\makeatother
+\AtBeginBibliography{%
+  \DeclareRobustCommand{\mkbibemph}[1]{#1}%
+  \DeclareRobustCommand{\mkbibbold}[1]{#1}%
+  \DeclareRobustCommand{\mkbibitalic}[1]{#1}}
+\makeatletter
+\apptocmd{\blx@endbibliography}{%
+  \let\mkbibemph\unir@orig@mkbibemph
+  \let\mkbibbold\unir@orig@mkbibbold
+  \let\mkbibitalic\unir@orig@mkbibitalic
+}{}{%
+  \PackageWarning{preamble}{No se pudo restaurar mkbibemph tras la bibliografia.}}
+\@ifundefined{pdfsuppresswarningpagegroup}{}{%
+  \pdfsuppresswarningpagegroup=1%
+}
+\makeatother

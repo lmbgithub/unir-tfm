@@ -1,0 +1,46 @@
+\section{Objetivos concretos y metodología de trabajo}
+Texto pendiente.
+
+\subsection{Objetivo general}
+
+Desarrollar UrgeNurse Agent, un sistema multiagente de ejecución local para soporte documental en servicios de urgencias hospitalarias, que integre tres módulos de inteligencia artificial —validación de triage ESI, extracción de información clínica mediante OCR y generación de borradores SBAR a partir de audio— con métricas de desempeño verificables: concordancia de triage kappa de Cohen ≥ 0,80, F1-score ≥ 0,85 en extracción de campos clínicos, word error rate < 15\% en transcripción, garantizando conformidad con RGPD mediante ejecución 100\% local sin acceso a APIs externas.
+
+\subsection{Objetivos específicos}
+
+\begin{table}[H]
+  \centering
+  \small
+  \caption{Objetivos específicos y métricas de éxito.}
+  \label{tab:specific-objectives}
+  \begingroup
+  \arrayrulecolor{unirTableLine}
+  \begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}p{0.06\linewidth}|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
+  \hline
+  \rowcolor{unirTableHeader}
+  \multicolumn{3}{|c|}{\textcolor{white}{\textbf{Objetivos específicos y métricas de éxito}}} \\
+  \hline
+  \rowcolor{unirTableBand}
+  \textbf{ID} & \textbf{Objetivo} & \textbf{Métrica de éxito} \\
+  \hline
+  OE1 & Analizar el estado del arte de sistemas de apoyo a documentación en urgencias, identificando brechas en privacidad, multimodalidad e integración. & Revisión de minimo 6 fuentes. \\
+  \hline
+  \rowcolor{unirTableBand}
+  OE2 & Diseñar e implementar el Agente de Triage ESI sobre MIMIC-IV-ED, comparando reglas deterministas vs.\ ML. & Kappa de Cohen $\geq$ 0.75 \\
+  \hline
+  OE3 & Diseñar e implementar el Agente Documental OCR sobre corpus de 40 PDFs sintéticos (2layouts), con comparativa Docling vs.\ MinerU. & F1-score $\geq$ 0.80 \\
+  \hline
+  \rowcolor{unirTableBand}
+  OE4 & Diseñar e implementar el Agente ASR+SBAR con Faster-Whisper + VAD y diseño iterativo del prompt (mín. 3 versiones). & WER $<$ 20\% $\cdot$ SBAR $\geq$ 90\% \\
+  \hline
+  OE5 & Integrar los tres agentes en LangGraph y evaluar el sistema completo sobre 5 escenarios clínicos end-to-end. & Rúbrica cualitativa de coherencia y ausencia de alucinaciones \\
+  \hline
+  \rowcolor{unirTableBand}
+  OE6 & Verificar el cumplimiento del RGPD y AI Act mediante ejecución 100\% local de todos los modelos. & Cero llamadas a APIs externas en producción \\
+  \hline
+  \end{tabularx}
+  \endgroup
+\end{table}
+\figuresource{Fuente: Elaboración propia.}
+
+\subsection{Metodología del trabajo}
+Texto pendiente.

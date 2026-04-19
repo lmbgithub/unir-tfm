@@ -1,0 +1,103 @@
+\section*{Organización del trabajo en grupo}
+Este trabajo incorpora tres segmentos técnicos suficientemente diferenciados que, de forma individual, podrían constituir propuestas de investigación independientes: procesamiento de datos tabulares clínicos con aprendizaje automático clásico, extracción de información de documentos no estructurados mediante OCR, y reconocimiento automático del habla con generación de texto estructurado mediante LLMs locales. El carácter grupal aporta un enfoque holístico que integra las tres modalidades en un sistema funcional con aplicabilidad profesional en entornos hospitalarios.
+
+
+\subsection*{Partes que aborda el TFE}
+UrgeNurse Agent integra tres módulos técnicos que, de forma individual, constituirían cada uno un trabajo de fin de estudios completo: un sistema de validación de triage clínico basado en reglas ESI, un agente de procesamiento documental mediante OCR, y un sistema de transcripción y estructuración de handovers mediante reconocimiento automático del habla.
+
+La integración de los tres módulos en una arquitectura multiagente orquestada representa un cuarto nivel de complejidad asumido de forma compartida por el equipo. Esta estructura asegura que cada integrante desarrolla una contribución técnica individual significativa, mientras que el conjunto del trabajo alcanza la profundidad y extensión requeridas para un trabajo colaborativo de fin de estudios.
+
+La tabla que sigue describe la organización del desarrollo de los módulos:
+
+\begin{table}[H]
+  \centering
+  \small
+  \caption{Organización del desarrollo de los módulos.}
+  \label{tab:modules}
+  \begingroup
+  \arrayrulecolor{unirTableLine}
+  \begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}p{0.24\linewidth}|>{\raggedright\arraybackslash}p{0.20\linewidth}|>{\raggedright\arraybackslash}X|}
+  \hline
+  \rowcolor{unirTableHeader}
+  \multicolumn{3}{|c|}{\textcolor{white}{\textbf{Organización del desarrollo de los módulos.}}} \\
+  \hline
+  \rowcolor{unirTableBand}
+  \textbf{Estudiante} & \textbf{Modulo Principal} & \textbf{Responsabilidades Especificas} \\
+  \hline
+  Luis E. Ortiz &
+  Agente Triage ESI & Exploración y análisis de MIMIC-IV-ED. Estadísticas descriptivas por nivel ESI. Diseño e implementación del validador de reglas. Evaluación de concordancia (kappa). \\
+  \hline
+  \rowcolor{unirTableBand}
+  Cesar A. Robledo &
+  Agente Documental (OCR) &
+Generación del corpus sintético (40 PDFs, 2 layouts). Evaluación Docling vs. MinerU. Implementación del extractor de campos + clasificación de alertas con LLM. \\
+  \hline
+  Luis M. Barrios  &
+Agente ASR+SBAR  &
+  Análisis del dataset de handoff. Implementación Faster-Whisper + VAD. Diseño iterativo del prompt SBAR. Evaluación WER con/sin VAD + SBAR Completeness Score \\
+  \hline
+  \rowcolor{unirTableBand}
+  Cesar A, Luis M, Luis E.  &
+Integración Módulos  & Diseño del PacienteState. Integración LangGraph. Evaluación end-to-end (5 escenarios). UI Streamlit.  \\
+  \hline
+  \end{tabularx}
+  \endgroup
+\end{table}
+\figuresource{Fuente: Elaboración propia.}
+
+
+\subsection*{Distribución y estructura de la memoria}
+La tabla siguiente describe el reparto de responsabilidades para la elaboración de la memoria del trabajo.
+
+
+\begin{table}[H]
+  \centering
+  \small
+  \caption{Organización del trabajo en grupo.}
+  \label{tab:phases}
+  \begingroup
+  \arrayrulecolor{unirTableLine}
+  \begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}p{0.5\linewidth}|>{\raggedright\arraybackslash}X|}
+  \hline
+  \rowcolor{unirTableHeader}
+  \multicolumn{2}{|c|}{\textcolor{white}{\textbf{Organización del trabajo en grupo.}}} \\
+  \hline
+  \rowcolor{unirTableBand}
+  \textbf{Apartado de la memoria} & \textbf{Responsables} \\
+  \hline
+  Introducción & Cesar A, Luis M, Luis E. \\
+  \hline
+  \rowcolor{unirTableBand}
+  Contexto y estado del arte & Cesar A, Luis M, Luis E. \\
+  \hline
+  Objetivos y metodología de trabajo  & Cesar A, Luis M, Luis E. \\
+  \hline
+  \rowcolor{unirTableBand}
+  Marco normativo  & Cesar A, Luis M, Luis E. \\
+  \hline
+  Agente Triage ESI (Modulo 1)  & Ortiz, Luis Edilberto. \\
+  \hline
+  \rowcolor{unirTableBand}
+  Agente Documental OCR (Modulo 2)  & Robledo, Cesar Adrián. \\
+  \hline
+  Agente ASR+SBAR (Modulo 3)  & Barrios, Luis Manuel. \\
+  \hline
+  \rowcolor{unirTableBand}
+ Conclusiones y trabajo futuro  & Cesar A, Luis M, Luis E. \\
+  \hline
+  Referencias Bibliográficas  & Cesar A, Luis M, Luis E. \\
+  \hline
+  \rowcolor{unirTableBand}
+ Anexos, Código Fuente  & Cesar A, Luis M, Luis E. \\
+  \hline
+  \end{tabularx}
+  \endgroup
+\end{table}
+\figuresource{Fuente: Elaboración propia.}
+
+
+\subsection*{Objetivo del TFE desde el punto de vista de la adquisición de conocimientos}
+Texto pendiente.
+
+\subsection*{Mecanismos de coordinación empleados}
+La coordinación del equipo se realiza mediante: repositorio compartido en GitHub para código fuente y control de versiones; Google Drive para coedición de la memoria; reuniones semanales de seguimiento por videoconferencia los martes; canal de comunicación continua mediante WhatsApp; y tablero Kanban en Notion para seguimiento de avance por módulo.
