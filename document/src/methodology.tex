@@ -3,7 +3,7 @@ Texto pendiente.
 
 \subsection{Objetivo general}
 
-Desarrollar UrgeNurse Agent, un sistema multiagente de ejecución local para soporte documental en servicios de urgencias hospitalarias, que integre tres módulos de inteligencia artificial —validación de triage ESI, extracción de información clínica mediante OCR y generación de borradores SBAR a partir de audio— con métricas de desempeño verificables: concordancia de triage kappa de Cohen ≥ 0,80, F1-score ≥ 0,85 en extracción de campos clínicos, word error rate < 15\% en transcripción, garantizando conformidad con RGPD mediante ejecución 100\% local sin acceso a APIs externas.
+Desarrollar UrgeNurse Agent, un sistema multiagente de ejecución local para soporte documental en servicios de urgencias hospitalarias, que integre tres módulos de inteligencia artificial — validación de triage ESI, extracción de información clínica mediante OCR y generación de borradores SBAR a partir de audio— con métricas de desempeño verificables: concordancia de triage kappa de Cohen ≥ 0,75, F1-score ≥ 0,80 en extracción de campos clínicos, word error rate < 20\% en transcripción, garantizando conformidad con RGPD mediante ejecución 100\% local sin acceso a APIs externas.
 
 \subsection{Objetivos específicos}
 
@@ -30,7 +30,7 @@ Desarrollar UrgeNurse Agent, un sistema multiagente de ejecución local para sop
   OE3 & Diseñar e implementar el Agente Documental OCR sobre corpus de 40 PDFs sintéticos (2 layouts), con comparativa Docling vs.\ MinerU. & F1-score $\geq$ 0.80 \\
   \hline
   \rowcolor{unirTableBand}
-  OE4 & Diseñar e implementar el Agente ASR+SBAR con Faster-Whisper + VAD y diseño iterativo del prompt (mín. 3 versiones). & WER $<$ 20\% $\cdot$ SBAR $\geq$ 90\% \\
+  OE4 & Diseñar e implementar el Agente ASR+SBAR con Faster-Whisper + VAD y diseño iterativo del prompt (mín. 3 versiones). & WER $<$ 20\% $\cdot$ SBAR $\geq$ 80\% \\
   \hline
   OE5 & Integrar los tres agentes en LangGraph y evaluar el sistema completo sobre 5 escenarios clínicos end-to-end. & Rúbrica cualitativa de coherencia y ausencia de alucinaciones \\
   \hline
